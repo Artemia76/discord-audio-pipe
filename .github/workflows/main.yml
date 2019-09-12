@@ -22,14 +22,17 @@ jobs:
         pip3 install numpy
         pip3 install pyinstaller
  
-    - name: Download portaudio
+    - name: Download libraries
       shell: pwsh
-      run: Invoke-WebRequest https://github.com/spatialaudio/portaudio-binaries/raw/master/libportaudio64bit.dll -OutFile ./libportaudio64bit.dll
+      run: |
+        Invoke-WebRequest https://github.com/Rapptz/discord.py/raw/master/discord/bin/libopus-0.x64.dll -OutFile ./libopus-0.x64.dll
+        Invoke-WebRequest https://github.com/spatialaudio/portaudio-binaries/raw/master/libportaudio64bit.dll -OutFile ./libportaudio64bit.dll
  
     - name: Compile to exe
       run: pyinstaller --hidden-import numpy 
                        --hidden-import sounddevice 
                        --hidden-import discord 
+                       --add-data "./libopus-0.x64.dll;./discord/bin/" 
                        --add-data "./libportaudio64bit.dll;./_sounddevice_data/portaudio-binaries/" 
                        --name dap 
                        --onefile main.py

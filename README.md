@@ -1,5 +1,6 @@
 # discord-audio-pipe
 Barebones program to send computer audio (microphone, stereo mix, virtual audio cable, etc) into a discord bot.
+You can download the latest release [here](https://github.com/QiCuiHub/discord-audio-pipe/releases).
 
 ## Dependencies
 Python 3.5+

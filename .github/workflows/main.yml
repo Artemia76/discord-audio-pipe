@@ -17,7 +17,7 @@ jobs:
 
     - name: Install python dependencies
       run: |
-        pip3 install --upgrade pip3
+        pip3 install --upgrade pip
         pip3 install discord.py[voice]
         pip3 install sounddevice
         pip3 install numpy
